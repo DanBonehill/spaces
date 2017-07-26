@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature "A member signs up" do
-  let(:member) {FactoryGirl.create(:member)}
+  let(:member) {FactoryGirl.build(:member)}
 
   before do
     visit root_path
