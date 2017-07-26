@@ -9,6 +9,7 @@ require 'rspec/rails'
 require 'capybara/rspec'
 require 'simple_bdd'
 require 'shoulda/matchers'
+Capybara.javascript_driver = :webkit
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end
@@ -39,10 +40,19 @@ RSpec.configure do |config|
 
   config.include SimpleBdd, type: :feature
   # config.include Devise::TestHelpers, :type => :controller
+
   config.before(:suite) do
-    DatabaseCleaner.strategy = :truncation
-    DatabaseCleaner.clean_with(:truncation)
-  end
+	  DatabaseCleaner.strategy = :truncation
+	  DatabaseCleaner.clean_with(:truncation)
+	end
+
+	config.before(:each) do
+	  DatabaseCleaner.start
+	end
+
+	config.after(:each) do
+	  DatabaseCleaner.clean
+	end
 
   Shoulda::Matchers.configure do |config|
     config.integrate do |with|
