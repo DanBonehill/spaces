@@ -9,6 +9,9 @@ require 'rspec/rails'
 require 'capybara/rspec'
 require 'simple_bdd'
 require 'shoulda/matchers'
+
+include ActionDispatch::TestProcess
+
 Capybara.javascript_driver = :webkit
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -59,6 +62,11 @@ RSpec.configure do |config|
       with.test_framework :rspec
       with.library :rails
     end
+  end
+
+  config.include Warden::Test::Helpers
+  config.before :suite do
+    Warden.test_mode!
   end
 
   # RSpec Rails can automatically mix in different behaviours to your tests

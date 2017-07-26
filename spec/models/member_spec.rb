@@ -1,19 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Member, type: :model do
-  let(:member) {FactoryGirl.create(:member)}
 
-  it "is valid" do
-    expect(member).to be_valid
-  end
+  describe "validations" do
+    it "has valid factory" do
+      expect(FactoryGirl.create(:member)).to be_valid
+    end
 
-  it "has email attribute" do
-    member.email = nil
-    expect(member).not_to be_valid
-  end
-
-  it "has password attribute" do
-    member.password = nil
-    expect(member).not_to be_valid
+    it { should validate_presence_of(:email)}
+    it { should validate_presence_of(:password)}
   end
 end

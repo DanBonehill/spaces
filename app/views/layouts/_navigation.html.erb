@@ -1,0 +1,6 @@
+<% if !member_signed_in? %>
+  <%= link_to "Sign in", new_member_session_path %>
+  <%= link_to "Sign up", new_member_registration_path %>
+<% else %>
+  <%= link_to "Logout", destroy_member_session_path, method: :delete %>
+<% end %>
