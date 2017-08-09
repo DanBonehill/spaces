@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <% flash.each do |name, msg| %>
+      <div class="alert alert-<%= name %>">
+        <a yref="#" class="close" data-dismiss="alert">&#215;</a>
+        <% if name == "danger" %>
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <% end %>
+        <%= msg %>
+      </div>
+    <% end %>
+  </div>
+</div>

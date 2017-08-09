@@ -24,8 +24,9 @@ RSpec.describe Profile, type: :model do
       @profile.first_name = "a" * 21
       expect(@profile).not_to be_valid
 
+      #unsure how to validate
       #@profile.first_name = "dANIEL"
-      #expect(@profile).not_to be_valid
+      #expect(@profile.first_name).to eq("Daniel")
     end
 
     it "has a capitalized last name with at least 3 characters and no more than 30" do
@@ -35,12 +36,21 @@ RSpec.describe Profile, type: :model do
       @profile.last_name = "a" * 31
       expect(@profile).not_to be_valid
 
+      #unsure how to validate
       #@profile.last_name = "bONEHILL"
       #expect(@profile).not_to be_valid
     end
 
     it "has a full_name function" do
       expect(@profile.full_name).to eq("#{@profile.first_name} #{@profile.last_name}")
+    end
+
+    it "has a contact number with at least 10 characters and no more than 20" do
+      @profile.contact_number = "0" * 9
+      expect(@profile).not_to be_valid
+
+      @profile.contact_number = "0" * 21
+      expect(@profile).not_to be_valid
     end
   end
 end

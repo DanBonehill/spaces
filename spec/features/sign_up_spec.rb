@@ -16,6 +16,7 @@ feature "A member signs up" do
     click_button "Sign up"
 
     expect(page).to have_content("Welcome! You have signed up successfully.")
+    expect(page).to have_content("Complete your profile")
   end
 
   scenario "without email credentials" do
