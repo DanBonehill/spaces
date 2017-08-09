@@ -11,6 +11,9 @@ Rails.application.configure do
 
   # Show full error reports.
   config.consider_all_requests_local = true
+  
+  # Paperclip config
+  Paperclip.options[:command_path] = "/usr/local/bin/"
 
   # Enable/disable caching. By default caching is disabled.
   if Rails.root.join('tmp/caching-dev.txt').exist?

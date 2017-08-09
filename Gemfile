@@ -35,6 +35,9 @@ gem 'jbuilder', '~> 2.5'
 # Use Devise for authentication
 gem 'devise'
 
+#Use Paperclip to attach images
+gem "paperclip", "~> 5.0.0"
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
