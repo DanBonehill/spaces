@@ -36,6 +36,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 #Use Paperclip to attach images
 gem "paperclip", "~> 5.0.0"
+
+gem 'aws-sdk'
 # Use figaro to securely configure environmnet variables
 gem "figaro"
 

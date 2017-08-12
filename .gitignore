@@ -26,3 +26,6 @@
 
 # Ignores any files in public/system
 public/system
+
+# Ignore application configuration
+/config/application.yml
