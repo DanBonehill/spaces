@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature "A member logs out" do
-  let(:member) {FactoryGirl.create(:member)}
+  let(:member) {FactoryGirl.create(:member_with_profile)}
 
   before do
     login_as(member, scope: :member)

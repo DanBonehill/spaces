@@ -23,7 +23,7 @@ feature "Viewing a profile" do
 
     expect(page).not_to have_content("View Profile")
 
-    visit member_profile_path(member_id: profile.member.id, id: profile.id)
+    visit member_profile_path(profile.member, profile)
     expect(page).to have_content("Oops. You're not allowed to view that page.")
   end
 
@@ -32,7 +32,7 @@ feature "Viewing a profile" do
 
     expect(page).not_to have_content("View Profile")
 
-    visit member_profile_path(member_id: profile.member.id, id: profile.id)
+    visit member_profile_path(profile.member, profile.id)
     expect(page).to have_content("Oops. You're not allowed to view that page.")
   end
 end
