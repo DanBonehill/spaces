@@ -2,3 +2,4 @@
 <img src="<%= @profile.profile_pic.url %>" alt="" width="100px">
 <h4><%= @profile.contact_number %></h4>
 <h4><%= @member.email %></h4>
+<%= link_to "Edit Profile", edit_member_profile_path(current_member, current_member.profile) %>

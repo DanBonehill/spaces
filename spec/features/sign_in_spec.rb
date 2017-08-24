@@ -28,6 +28,7 @@ feature "A member signs in" do
 
     expect(page).to have_content("Signed in successfully.")
     expect(page).to have_content("You dont have a profile, please complete your profile to access the rest of the site.")
+    expect(page).to have_content("First Name:")
   end
 
   scenario "with invalid credentials" do
@@ -39,3 +40,19 @@ feature "A member signs in" do
     expect(page).to have_content("Invalid Email or password.")
   end
 end
+
+# feature "A member is already signed in" do
+#   let(:member) {FactoryGirl.create(:member)}
+#
+#   before do
+#     login_as(member, scope: :member)
+#     visit root_path
+#   end
+#
+#   scenario "and does not have a profile" do
+#
+#     expect(page).to have_content("Signed in successfully.")
+#     expect(page).to have_content("You dont have a profile, please complete your profile to access the rest of the site.")
+#     expect(page).to have_content("First Name:")
+#   end
+# end

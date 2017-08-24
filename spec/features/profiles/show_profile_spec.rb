@@ -22,6 +22,7 @@ feature "Viewing a profile" do
     visit root_path
 
     expect(page).not_to have_content("View Profile")
+    expect(page).not_to have_content("You dont have a profile, please complete your profile to access the rest of the site.")
 
     visit member_profile_path(profile.member, profile)
     expect(page).to have_content("Oops. You're not allowed to view that page.")
