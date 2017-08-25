@@ -14,9 +14,9 @@ feature "Editing a profile" do
     click_link("Edit Profile")
 
     expect(page).to have_content("Edit your profile")
-    expect(page).to have_content(profile.first_name)
-    expect(page).to have_content(profile.last_name)
-    expect(page).to have_content(profile.contact_number)
+    expect(page).to have_field("First Name:", :type => "text", :with => profile.first_name)
+    expect(page).to have_field("Last Name:", :type => "text", :with => profile.last_name)
+    expect(page).to have_field("Contact Number:", :type => "text", :with => profile.contact_number)
 
     fill_in "profile[first_name]", with: "Dan"
     fill_in "profile[last_name]", with: "Bonehill"
@@ -25,7 +25,7 @@ feature "Editing a profile" do
     profile_pic_path = 'spec/fixtures/files/profile_pic.jpg'
     attach_file "profile[profile_pic]", profile_pic_path
 
-    click_button "Update"
+    click_button "Save"
 
     expect(page).to have_content("Your profile was updated")
 
