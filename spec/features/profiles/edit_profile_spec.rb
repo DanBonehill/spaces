@@ -27,7 +27,7 @@ feature "Editing a profile" do
 
     click_button "Save"
 
-    expect(page).to have_content("Your profile was updated")
+    expect(page).to have_content("Your profile was successfully updated")
 
     expect(profile.full_name).to eq("Dan Bonehill")
     expect(profile.contact_number).to eq("07447921846")

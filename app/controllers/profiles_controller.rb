@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit]
-  before_action :require_same_member, only: [:show, :edit, :update]
+  before_action :require_same_member, only: [:show, :edit]
 
   def index
   end
