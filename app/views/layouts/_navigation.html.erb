@@ -1,9 +1,35 @@
-<% if !member_signed_in? %>
-  <%= link_to "Sign in", new_member_session_path %>
-  <%= link_to "Sign up", new_member_registration_path %>
-<% else %>
-  <% if !current_member.profile.new_record? %>
-    <%= link_to "View Profile", member_profile_path(current_member, current_member.profile) %>
-  <% end %>
-  <%= link_to "Logout", destroy_member_session_path, method: :delete %>
-<% end %>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to "Spaces", root_path, class: "navbar-brand" %>
+    </div>
+    <div class="collapse navbar-collapse" id="navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><%= link_to "Home", root_path %></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if !member_signed_in? %>
+          <li><%= link_to "Sign in", new_member_session_path %></li>
+          <li><%= link_to "Sign up", new_member_registration_path %></li>
+        <% else %>
+          <% if !current_member.profile.new_record? %>
+            <li><%= link_to "View Profile", member_profile_path(current_member, current_member.profile) %></li>
+          <% end %>
+          <li><%= link_to "Logout", destroy_member_session_path, method: :delete %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
