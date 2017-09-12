@@ -1,5 +1,16 @@
-<h1><%= @profile.full_name %></h1>
-<img src="<%= @profile.profile_pic.url %>" alt="" width="100px">
-<h4><%= @profile.contact_number %></h4>
-<h4><%= @member.email %></h4>
-<%= link_to "Edit Profile", edit_member_profile_path(current_member, current_member.profile) %>
+<%= render "shared/page_title", title: "Your Profile" %>
+<div class="row">
+  <div class="col-md-3">
+    <img src="<%= @profile.profile_pic.url %>" alt="" width="225px">
+  </div>
+  <div class="col-md-6">
+    <h3>Hi <%= @profile.first_name %>,</h3>
+    <p>Here you will find the information we hold on you, and soon, the details of your bookings!</p>
+    <div class="seperator">
+      <p><strong>Full Name:</strong> <%= @profile.full_name %></p>
+      <p><strong>Contact Number:</strong> <%= @profile.contact_number %></p>
+      <p><strong>Email:</strong> <%= @member.email %></p>
+      <%= link_to "Edit Profile", edit_member_profile_path(current_member, current_member.profile), :class => "btn btn-warning btn-xs" %>
+    </div>
+  </div>
+</div>
