@@ -31,7 +31,7 @@ class ProfilesController < ApplicationController
     @profile = current_member.profile
     if @profile.update(profile_params)
       flash[:success] = "Your profile was successfully updated"
-      redirect_to root_path
+      redirect_to member_profile_path(@profile)
     else
       flash.now[:danger] = "Something went wrong"
       render :edit

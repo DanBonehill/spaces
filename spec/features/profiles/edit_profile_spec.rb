@@ -29,9 +29,11 @@ feature "Editing a profile" do
 
     expect(page).to have_content("Your profile was successfully updated")
 
+    profile.reload
+
     expect(profile.full_name).to eq("Dan Bonehill")
     expect(profile.contact_number).to eq("07447921846")
-    expect(profile.profile_pic_path).to eq(profile_pic_path)
+    expect(profile.profile_pic_file_name).to eq 'profile_pic.jpg'
 
     expect(page).to have_content("Dan Bonehill")
     expect(page).to have_content("07447921846")
