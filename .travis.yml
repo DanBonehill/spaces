@@ -1,5 +1,7 @@
 language: ruby
 rvm:
  - 2.4
- - jruby
- - rbx-2
+before_script:
+  - bin/setup
+script:
+  - rspec
