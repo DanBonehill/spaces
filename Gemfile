@@ -63,6 +63,10 @@ group :development, :test do
   gem 'simple_bdd'
   gem 'shoulda-matchers'
   gem 'spring'
+  # Guard Gems
+  gem 'guard', '~> 2.14.0'
+  gem 'guard-rspec', '~> 4.7.2'
+  gem 'guard-cucumber', '~> 2.1.2'
 end
 
 group :test do
