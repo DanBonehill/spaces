@@ -56,7 +56,6 @@ group :development, :test do
   gem 'ffaker'
   gem 'database_cleaner'
   gem 'letter_opener'
-  gem 'rspec-rails'
   gem 'pry'
   gem 'pry-nav'
   gem 'pry-rails', '~> 0.3.2'
@@ -80,6 +79,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  # RSpec
+  gem 'rspec-rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
