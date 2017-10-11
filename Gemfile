@@ -39,9 +39,9 @@ gem 'jbuilder', '~> 2.5'
 # Use Devise for authentication
 gem 'devise'
 #Use Paperclip to attach images
-gem "paperclip", "~> 5.0.0"
+gem "paperclip", ">= 5.0.0"
 
-gem 'aws-sdk'
+gem 'aws-sdk', ">= 2.0"
 # Use figaro to securely configure environmnet variables
 gem "figaro"
 
