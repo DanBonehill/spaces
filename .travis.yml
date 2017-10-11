@@ -4,4 +4,4 @@ rvm:
 before_script:
   - bin/setup
 script:
-  - rspec
+  - rake
