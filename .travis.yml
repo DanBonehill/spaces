@@ -4,4 +4,5 @@ rvm:
 before_script:
   - bin/setup
 script:
-  - bundle exec rake
+  - bundle exec rspec spec/
+cache: bundler
