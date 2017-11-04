@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   resources :members, only: [:index, :show] do
     resources :profiles
   end
+
+  resources :locations
 end

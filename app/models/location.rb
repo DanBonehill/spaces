@@ -14,4 +14,10 @@ class Location < ApplicationRecord
   validates :description, presence: true, length: { minimum: 10, maximum: 250 }
 
   has_one :address
+  accepts_nested_attributes_for :address
+
+  def self.location_features_options
+    ["Wifi", "Screen / Projector", "Air Conditioning", "Parking", "Great View",
+      "Whiteboard", "Conference Call Phone", "Video Conferencing Facilities"]
+  end
 end
