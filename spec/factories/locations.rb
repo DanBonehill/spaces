@@ -12,5 +12,18 @@ FactoryGirl.define do
     factory :location_with_address do
       address
     end
+
+    factory :location_with_one_image do
+      FactoryGirl.create(:image)
+    end
+
+    factory :location_with_image_and_caption do
+      FactoryGirl.create(:image_with_caption)
+    end
+
+    factory :location_with_images_and_address do
+      FactoryGirl.create_list(:image, 2)
+      address
+    end
   end
 end

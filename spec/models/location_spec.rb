@@ -4,6 +4,10 @@ RSpec.describe Location, type: :model do
   describe "validations" do
     it "has valid factory" do
       expect(FactoryGirl.create(:location)).to be_valid
+      expect(FactoryGirl.create(:location_with_address)).to be_valid
+      expect(FactoryGirl.create(:location_with_one_image)).to be_valid
+      expect(FactoryGirl.create(:location_with_image_and_caption)).to be_valid
+      expect(FactoryGirl.create(:location_with_images_and_address)).to be_valid
     end
 
     it { should validate_presence_of(:name) }

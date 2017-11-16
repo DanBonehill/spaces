@@ -15,6 +15,7 @@ class Location < ApplicationRecord
 
   has_one :address
   accepts_nested_attributes_for :address
+  has_many :images
 
   def self.location_features_options
     ["Wifi", "Screen / Projector", "Air Conditioning", "Parking", "Great View",
