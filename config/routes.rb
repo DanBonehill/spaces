@@ -6,5 +6,7 @@ Rails.application.routes.draw do
     resources :profiles
   end
 
-  resources :locations
+  resources :locations do
+    get :add_images, on: :member
+  end
 end

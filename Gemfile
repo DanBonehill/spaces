@@ -38,8 +38,10 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Devise for authentication
 gem 'devise'
-#Use Paperclip to attach images
+# Use Paperclip to attach images
 gem "paperclip", ">= 5.0.0"
+# Use DropZone JS to upload multiple images
+gem 'dropzonejs-rails'
 
 gem 'aws-sdk', ">= 2.0"
 # Use figaro to securely configure environmnet variables
@@ -52,7 +54,6 @@ group :development, :test do
   gem 'better_errors'
   gem 'capybara-email'
   gem 'capybara-webkit'
-  gem 'factory_girl_rails'
   gem 'ffaker'
   gem 'database_cleaner'
   gem 'letter_opener'
@@ -70,6 +71,7 @@ end
 
 group :test do
   gem 'rake'
+  gem 'factory_girl_rails'
 end
 
 group :development do

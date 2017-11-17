@@ -10,7 +10,7 @@ FactoryGirl.define do
     description { FFaker::Lorem.characters(character_count = rand(10..249)) }
 
     factory :location_with_address do
-      address
+      after(:create) {|instance| create(:address, location: instance)}
     end
 
     factory :location_with_one_image do

@@ -1,1 +1,9 @@
 <p>Location Created</p>
+
+<div class="col-md-3">
+  <% if @location.images %>
+    <img src="<%= @location.images.first.image_pic.url %>" alt="" width="225px">
+  <% else %>
+    <img src="<%= @location.images.first.image_pic.default_url %>" alt="" width="225px">
+  <% end %>
+</div>

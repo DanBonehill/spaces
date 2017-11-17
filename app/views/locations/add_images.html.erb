@@ -1,0 +1,30 @@
+<%= render "shared/page_title", title: "Upload Images" %>
+<div class="col-md-8 col-md-offset-2">
+	<div class="">
+		<h5>Upload images to show off your location</h5>
+		<%= link_to "Skip", @location, class: "btn" %>
+	</div>
+	<%= form_for @location, html: { multipart: true, class: "dropzone"}  do |f| %>
+			<%= f.fields_for :images, Image.new do |image| %>
+				<div class="fallback">
+		      <%= image.file_field :image_pic %>
+		      <%= f.submit "Add Image" %>
+		   	</div>
+			<% end %>
+	<% end %>
+	<div class="">
+		<%= link_to "Save and Continue", @location, class: "btn btn-primary" %>
+	</div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function(){
+	// disable auto discover
+	Dropzone.autoDiscover = false;
+
+	var dropzone = new Dropzone (".dropzone", {
+		maxFilesize: 2,
+		paramName: "location[images_attributes][0][image_pic]", // Rails expects the file upload to be something like model[field_name]
+		addRemoveLinks: false
+	});
+});
+</script>
