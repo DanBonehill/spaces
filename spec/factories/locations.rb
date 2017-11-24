@@ -14,16 +14,17 @@ FactoryGirl.define do
     end
 
     factory :location_with_one_image do
-      FactoryGirl.create(:image)
+      after(:create) {|instance| create(:image, location: instance)}
     end
 
     factory :location_with_image_and_caption do
-      FactoryGirl.create(:image_with_caption)
+      after(:create) {|instance| create(:image_with_caption, location: instance)}
     end
 
     factory :location_with_images_and_address do
-      FactoryGirl.create_list(:image, 2)
-      address
+      after(:create) {|instance| create(:address, location: instance)}
+      after(:create) {|instance| create(:image, location: instance)}
+      after(:create) {|instance| create(:image, location: instance)}
     end
   end
 end
