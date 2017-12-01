@@ -1,9 +1,50 @@
-<p>Location Created</p>
-
-<div class="col-md-3">
-  <% if @location.images %>
-    <img src="<%= @location.images.first.image_pic.url %>" alt="" width="225px">
-  <% else %>
-    <img src="<%= @location.images.first.image_pic.default_url %>" alt="" width="225px">
-  <% end %>
+<div class="row">
+  <div class="col-md-3">
+    <% if !@default_url %>
+      <img src="<%= @location.images.first.image_pic.url %>" alt="" width="100%">
+    <% else %>
+      <img src="<%= @default_url %>" alt="" width="100%">
+    <% end %>
+  </div>
+  <div class="col-md-9">
+    <h3><%= @location.name %></h3>
+    <hr>
+    <div class="row">
+      <div class="col-md-8">
+        <p>
+          <h4>About:</h4>
+          <%= @location.description %>
+        </p>
+        <div class="">
+          <ul>
+            <% @location.features.each do |f| %>
+              <li><%= f %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <h4>Information:</h4>
+        <p>
+          Max Occupancy: <%= @location.max_occupancy %><br>
+          Size: <%= @location.size %><br>
+          Price: <%= number_to_currency(@location.price, unit: "£") %>
+        </p>
+        <p>
+          <h5>Point of Contact:</h5>
+          <%= @location.point_of_contact %><br>
+          Tel: <%= @location.contact_number %>
+        </p>
+        <p>
+          <h5>Address:</h5>
+          <%= @location.address.line_1 %><br>
+          <% if @location.address.line_2 %>
+            <%= @location.address.line_2 %><br>
+          <% end %>
+          <%= @location.address.city %><br>
+          <%= @location.address.postcode %>
+        </p>
+      </div>
+    </div>
+  </div>
 </div>

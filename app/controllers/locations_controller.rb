@@ -18,6 +18,10 @@ class LocationsController < ApplicationController
   end
 
   def show
+    if @location.images == []
+      puts "==== This location does not have any images ===="
+      @default_url = ActionController::Base.helpers.asset_path('missing_location.png')
+    end
   end
 
   def update
