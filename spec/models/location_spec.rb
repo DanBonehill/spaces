@@ -8,6 +8,7 @@ RSpec.describe Location, type: :model do
       expect(FactoryGirl.create(:location_with_one_image)).to be_valid
       expect(FactoryGirl.create(:location_with_image_and_caption)).to be_valid
       expect(FactoryGirl.create(:location_with_images_and_address)).to be_valid
+      expect(FactoryGirl.create(:location_with_features)).to be_valid
     end
 
     it { should validate_presence_of(:name) }
@@ -17,6 +18,8 @@ RSpec.describe Location, type: :model do
     it { should validate_presence_of(:price) }
     it { should validate_presence_of(:description) }
     it { should have_one(:address)}
+    it { should have_many(:images)}
+    it { should have_and_belong_to_many(:features)}
 
     before do
       @location = Location.create(
@@ -25,7 +28,6 @@ RSpec.describe Location, type: :model do
         contact_number: "07554823654",
         max_occupancy: 4,
         price: 30,
-        features: ["Wifi", "Air Conditioning"],
         description: "This is an amazing office space. I love it."
       )
     end
@@ -61,23 +63,5 @@ RSpec.describe Location, type: :model do
       @location.description = "a" * 251
       expect(@location).not_to be_valid
     end
-
-    it "has a list of features that are valid" do
-      # Need to create custom validation
-      # @location.features << "aaa"
-      # @location.save
-      # expect(@location).not_to be_valid
-      # @location.features.pop
-
-      # @location.features << "Glassware"
-      # @location.save
-      # expect(@location).not_to be_valid
-      # @location.features.pop
-
-      # @location.features << "Whiteboard"
-      # @location.save
-      # expect(@location).to be_valid
-    end
-
   end
 end

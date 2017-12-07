@@ -63,8 +63,8 @@
     </div>
     <div class="col-md-4">
       <div class="form-group">
-        <%= f.label :features, "Features:" %>
-        <%= f.select(:features, Location.location_features_options, {}, {multiple: true, class: "form-control"}) %>
+        <%= f.label :features_ids, "Features:" %>
+        <%= f.select :feature_ids, Feature.all.pluck(:name, :id), {:include_hidden => false}, { multiple: true, class: "selectize" } %>
       </div>
     </div>
   </div>

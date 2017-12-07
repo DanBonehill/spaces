@@ -42,6 +42,8 @@ gem 'devise'
 gem "paperclip", ">= 5.0.0"
 # Use DropZone JS to upload multiple images
 gem 'dropzonejs-rails'
+# Use Selectize for selecting elements
+gem "selectize-rails"
 
 gem 'aws-sdk', ">= 2.0"
 # Use figaro to securely configure environmnet variables

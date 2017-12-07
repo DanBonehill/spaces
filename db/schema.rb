@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171111175413) do
+ActiveRecord::Schema.define(version: 20171209222707) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,12 @@ ActiveRecord::Schema.define(version: 20171111175413) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "location_id"
+  end
+
+  create_table "features", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "images", force: :cascade do |t|
@@ -44,10 +50,15 @@ ActiveRecord::Schema.define(version: 20171111175413) do
     t.integer "size"
     t.float "price"
     t.text "description"
-    t.string "features", array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["features"], name: "index_locations_on_features", using: :gin
+  end
+
+  create_table "locations_features", id: false, force: :cascade do |t|
+    t.bigint "location_id"
+    t.bigint "feature_id"
+    t.index ["feature_id"], name: "index_locations_features_on_feature_id"
+    t.index ["location_id"], name: "index_locations_features_on_location_id"
   end
 
   create_table "members", force: :cascade do |t|

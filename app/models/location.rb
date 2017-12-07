@@ -5,22 +5,12 @@ class Location < ApplicationRecord
   validates :contact_number, presence: true, length: { minimum: 10, maximum: 20 }
   validates :max_occupancy, presence: true
   validates :price, presence: true
-  # Validation does not work. Need to create custom validation
-  # validates :features, :inclusion => { :in => ["Wifi", "Screen / Projector",
-  #                                               "Air Conditioning", "Parking",
-  #                                               "Great View", "Whiteboard",
-  #                                               "Conference Call Phone",
-  #                                               "Video Conferencing Facilities"] }
   validates :description, presence: true, length: { minimum: 10, maximum: 250 }
 
   has_one :address
   has_many :images
+  has_and_belongs_to_many :features, join_table: "locations_features"
 
   accepts_nested_attributes_for :address
   accepts_nested_attributes_for :images
-
-  def self.location_features_options
-    ["Wifi", "Screen / Projector", "Air Conditioning", "Parking", "Great View",
-      "Whiteboard", "Conference Call Phone", "Video Conferencing Facilities"]
-  end
 end

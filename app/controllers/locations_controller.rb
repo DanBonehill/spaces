@@ -19,7 +19,7 @@ class LocationsController < ApplicationController
 
   def show
     if @location.images == []
-      puts "==== This location does not have any images ===="
+      logger.info("====This location does not have any images====")
       @default_url = ActionController::Base.helpers.asset_path('missing_location.png')
     end
   end
@@ -48,6 +48,6 @@ class LocationsController < ApplicationController
                                       address_attributes: [:line_1, :line_2, :city,
                                                             :postcode],
                                       images_attributes: [:image_pic, :caption, :location_id],
-                                      :features => [])
+                                      feature_ids: [])
   end
 end
