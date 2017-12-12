@@ -38,11 +38,11 @@ RSpec.describe Address, type: :model do
       expect(@address).not_to be_valid
     end
 
-    it "has line 2 with at least 5 characters and no more than 35" do
+    it "has line 2 with at least 5 characters and no more than 40" do
       @address.line_2 = "a" * 4
       expect(@address).not_to be_valid
 
-      @address.line_2 = "a" * 36
+      @address.line_2 = "a" * 41
       expect(@address).not_to be_valid
     end
 
