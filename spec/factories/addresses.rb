@@ -5,5 +5,10 @@ FactoryGirl.define do
     city { FFaker::AddressUK.city }
     postcode { FFaker::AddressUK.postcode }
     location
+
+    factory :address_with_lat_long do
+      latitude { FFaker::Geolocation.lat  }
+      longitude { FFaker::Geolocation.lng }
+    end
   end
 end

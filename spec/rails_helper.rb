@@ -9,6 +9,7 @@ require 'rspec/rails'
 require 'capybara/rspec'
 require 'simple_bdd'
 require 'shoulda/matchers'
+require 'support/geocode_stub'
 
 include ActionDispatch::TestProcess
 
@@ -38,6 +39,8 @@ RSpec.configure do |config|
 
   # Use color in STDOUT
   config.color = true
+
+  config.include GeocodeStub
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false

@@ -44,6 +44,8 @@ gem "paperclip", ">= 5.0.0"
 gem 'dropzonejs-rails'
 # Use Selectize for selecting elements
 gem "selectize-rails"
+# Use Geocoder to lookup address
+gem 'geocoder'
 
 gem 'aws-sdk', ">= 2.0"
 # Use figaro to securely configure environmnet variables
