@@ -25,6 +25,9 @@ feature "A Member views a Location" do
     expect(page).to have_content(location.address.line_2)
     expect(page).to have_content(location.address.city)
     expect(page).to have_content(location.address.postcode)
+
+    expect(page).to have_css("div#map")
+
   end
 
   scenario "that does not exist" do

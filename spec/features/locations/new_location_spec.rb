@@ -33,9 +33,7 @@ feature "A Host creates a Location" do
 
     expect(Location.count).to eq 1
     expect(page).to have_content("Location Created")
-    location = Location.last
-    expect(page).to have_current_path(add_images_location_path(location))
-    # expect(location.address).to have_attributes(latitude: 40.7143528, longitude: -74.0059731)
+    expect(page).to have_current_path(add_images_location_path(Location.last))
   end
 
   scenario "with invalid attributes" do

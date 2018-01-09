@@ -47,6 +47,11 @@ gem "selectize-rails"
 # Use Geocoder to lookup address
 gem 'geocoder'
 
+# Use gems for Google Maps
+gem 'underscore-rails'
+gem 'gmaps4rails'
+gem 'markerclustererplus-rails'
+
 gem 'aws-sdk', ">= 2.0"
 # Use figaro to securely configure environmnet variables
 gem "figaro"

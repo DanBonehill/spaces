@@ -48,3 +48,16 @@
     </div>
   </div>
 </div>
+<div class="row">
+  <div id="map" class="col-md-3" style="height: 400px;"></div>
+</div>
+
+<script type="text/javascript">
+	handler = Gmaps.build('Google');
+	handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+	  markers = handler.addMarker(<%=raw @coordinates.to_json %>);
+	  handler.bounds.extendWith(markers);
+	  handler.fitMapToBounds(markers);
+	  handler.getMap().setZoom(15);
+	});
+</script>

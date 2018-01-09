@@ -26,7 +26,7 @@ FactoryGirl.define do
     end
 
     factory :location_with_images_and_address do
-      after(:create) {|instance| create(:address, location: instance)}
+      after(:create) {|instance| create(:address_with_lat_long, location: instance)}
       after(:create) {|instance| create(:image, location: instance)}
       after(:create) {|instance| create(:image, location: instance)}
     end
